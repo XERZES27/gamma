@@ -1,0 +1,84 @@
+# This is a basic workflow that is manually triggered
+
+run-name: 'Build Android Release'
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Deploy Gamma'
+        # Default value if no value is explicitly provided
+        default: 'Gamma'
+        # Input has to be provided for the workflow to run
+        required: true
+        # The data type of the input
+        type: string
+      version:
+        description: 'Version Number'
+        required: true
+        type: string
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  version:
+    name: Create version number
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: "5.x"
+      - name: Use GitVersion
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+      - name: Create version.txt with nuGetVersion
+        run: echo ${{ steps.gitversion.outputs.nuGetVersion  }} > version.txt
+      - name: Upload version.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: gitversion
+          path: version.txt
+
+  build:
+    name: Create Android Build
+    needs: version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get version.txt
+        uses: actions/download-artifact@v2
+        with:
+          name: gitversion
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: "12.x"
+          cache: gradle
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.16.0"
+          channel: 'stable'
+          cache: true
+      
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Start Android Release Build
+        run: flutter build apk --split-per-abi
+      - name: Upload Android Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-release
+          path: |
+                build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk 
+                build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+                build/app/outputs/flutter-apk/app-x86_64-release.apk
+
+
