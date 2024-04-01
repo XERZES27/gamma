@@ -1,4 +1,4 @@
-![image](https://github.com/XERZES27/gamma/assets/39665735/5b83eede-0f5a-4378-9c78-56fa39a174a1)# Gamma
+# Gamma
 
 Gamma Movie Viewer
 
