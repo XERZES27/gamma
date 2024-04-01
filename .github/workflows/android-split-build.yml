@@ -1,5 +1,5 @@
 # This is a basic workflow that is manually triggered
-
+name: Build Gamma
 run-name: 'Build Android Release'
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
@@ -16,10 +16,6 @@ on:
         # Input has to be provided for the workflow to run
         required: true
         # The data type of the input
-        type: string
-      version:
-        description: 'Version Number'
-        required: true
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
