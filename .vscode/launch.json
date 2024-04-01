@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Gamma",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Gamma (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Gamma (profile cache skl mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": ["--cache-sksl", "--purge-persistent-cache"]
+        },
+        {
+            "name": "Gamma (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Gamma (verbose)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-v"
+            ]
+        },
+        
+    ]
+}
