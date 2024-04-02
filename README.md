@@ -6,9 +6,10 @@ Gamma Movie Viewer
 | :------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | 
 |  ![Image 1](https://github.com/XERZES27/gamma/blob/main/content/gamma-photo-1.jpg?raw=true) | ![Image 2](https://github.com/XERZES27/gamma/blob/main/content/gamma-photo-2.jpg?raw=true)
 
-|                                                            Video                                                            |                                                           Video  2                                                          | 
-| :------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
-|  ![Video 1](https://github.com/XERZES27/gamma/blob/main/content/gamma-video-3.gif?raw=true) |   ![Video 2](https://d2cujuazqdajng.cloudfront.net/z264uw%2Fpreview%2F56959350%2Fmain_large.gif?response-content-disposition=inline%3Bfilename%3D%22main_large.gif%22%3B&response-content-type=image%2Fgif&Expires=1712029383&Signature=bvski3TZ40QGwMkwX3czOSFPrujM3JHbzUI8m2ZB-1AFKuAAOTtOEH0kBiiG9Ghbemn4nH~nPusI~9Ilmrc8Bg3Qrl7-77YiehJNtc-WhvbDpPIJ9vY4jSKwRggxxno0Cc51W-ZqNcixq2w4j00Byufp0ipEwAnisOfSJLwVvURnkiaYh89gBUrWgNzRfzIEB7xL9cibyJxv2pNXMqL504UGWj6yDu4w7bcbXJFE4dyxNVnecju~Cuy9aVRKapFXTHK4BOmjBV-gI5b3QeHZC7BfGQ2peAPRi9lAC-~MWtViuWxTCZXcKZMj6~YkT4qt20cdGp2mc6JHGdwDEjOBRw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ) |
+|                                                            Video                                                            |                                                           Video  2                                                          |                                                         Video  3                                                          | 
+| :------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: |
+|  ![Video 1](https://github.com/XERZES27/gamma/blob/main/content/gamma-video-3.gif?raw=true) |   ![Video 2](https://github.com/XERZES27/gamma/blob/main/content/gamma-video-4.gif?raw=true) |  ![Video 3](https://github.com/XERZES27/gamma/blob/main/content/gamma-video-5.gif?raw=true) |
+
 
 
 ## Installation
@@ -38,5 +39,46 @@ Gamma Movie Viewer
 ## WorkFlow Build
 
 - [Github Actions](https://github.com/XERZES27/gamma/actions/workflows/android-split-build.yml)
+
+## Explanation
+
+The Application is comprimised of Seven files ``` main.dart home_screen.dart route.dart data.dart cover_detail.dart cover_detail_carousel.dart youtube_trailer_player.dart ``` 
+
+```main.dart``` is a basic wrapper that contains the app theme and systemuioverlay.
+```home_screen.dart``` is a container of 3 custom carousel pageview widgets
+```route.dart``` is a custom route generator that was written to avoid using router package
+```data.dart``` contains references to asset files, but does not have any state management implementation because this application does not need it.
+```cover_detail.dart``` is the page that is pushed to the stack when the images in the carousel are clicked, it contains a large preview of the selected image and a list of carousel previews below.
+```cover_detail_carousel.dart``` is exactly like ```cover_detail.dart``` but does not have the hero widget to avoid a repeated hero declartion error.
+```youtube_trailer_player.dart``` accepts a link which autoplays a youtube video, which should be the trailer of the clicked cover image.
+
+## Used Packages
+
+```
+  youtube_player_flutter: ^9.0.0
+  flutter_inappwebview: ^6.0.0
+  icons_launcher: ^2.1.7
+```
+
+```
+youtube_player_flutter: plays youtube videos
+flutter_inappwebview: is an internal dependency of youtube_player_flutter
+icons_launcher: is used (can be done without with this package) to create the respective launcher icons
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
