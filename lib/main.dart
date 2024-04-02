@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gamma/cover_detail.dart';
-import 'package:gamma/home_screen.dart';
-import 'package:gamma/route.dart';
+import 'package:Gamma/route.dart';
 
 void main()async {
    WidgetsFlutterBinding.ensureInitialized();

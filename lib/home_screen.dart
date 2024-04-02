@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gamma/cover_detail.dart';
+import 'package:Gamma/cover_detail.dart';
 import "data.dart";
 import 'dart:math';
 
@@ -42,7 +42,7 @@ class CoverCarousel extends StatefulWidget {
 }
 
 class _CoverCarouselState extends State<CoverCarousel> {
-  final PageController _pageController = PageController(viewportFraction: 0.41);
+  PageController _pageController = PageController(viewportFraction: 0.41);
   final int lengthOfCovers = covers.length;
   final List<String> _covers = [...covers];
 
@@ -64,6 +64,10 @@ class _CoverCarouselState extends State<CoverCarousel> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final bool showPlayButton = widget.carouselType.showPlayButton;
+    Orientation orientation = MediaQuery.of(context).orientation;
+    bool isPortrait = orientation == Orientation.portrait;
+    _pageController = PageController(viewportFraction: isPortrait?0.41: 0.2);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -101,7 +105,7 @@ class _CoverCarouselState extends State<CoverCarousel> {
                     child: Stack(
                       children: [
                         Hero(
-                          tag: widget.carouselType.string+cover,
+                          tag: widget.carouselType.string + cover,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             clipBehavior: Clip.antiAlias,

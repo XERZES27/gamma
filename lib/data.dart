@@ -12,7 +12,19 @@ const covers = [
   "11.jpg",
 ];
 
-
+Map<String, String> coverToTrailer = {
+  "1.jpg": "https://www.youtube.com/watch?v=W1Jfg2YI1UY",
+  "2.jpg": "https://www.youtube.com/watch?v=Ify9S7hj480",
+  "3.jpg": "https://www.youtube.com/watch?v=W00grJNOIVo",
+  "4.jpg": "https://www.youtube.com/watch?v=Y_qaE2Y-nQg",
+  "5.jpg": "https://www.youtube.com/watch?v=C3MYVeGSuXk",
+  "6.jpg": "https://www.youtube.com/watch?v=sKiRFUcUWHA",
+  "7.jpg": "https://www.youtube.com/watch?v=sOKjgG3nSII",
+  "8.jpg": "https://www.youtube.com/watch?v=bkxJ0DojPJ4",
+  "9.jpg": "https://www.youtube.com/watch?v=hEJnMQG9ev8",
+  "10.jpg": "https://www.youtube.com/watch?v=PvYyKTZtUG0",
+  "11.jpg": "https://www.youtube.com/watch?v=6kw1UVovByw",
+};
 
 enum CarouselType { recentlyAdded, continueWatching, mostWatched }
 

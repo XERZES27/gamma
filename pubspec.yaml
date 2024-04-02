@@ -1,4 +1,4 @@
-name: gamma
+name: Gamma
 description: "Gamma Streaming App"
 
 publish_to: "none"
@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  youtube_player_flutter: ^9.0.0
+  flutter_inappwebview: ^6.0.0
+  icons_launcher: ^2.1.7
 
 dev_dependencies:
   flutter_test:
